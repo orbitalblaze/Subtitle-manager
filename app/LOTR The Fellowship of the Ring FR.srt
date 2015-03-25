@@ -1,4 +1,4 @@
-1
+﻿1
 00:00:34,487 --> 00:00:36,645
 Le monde a changé.
 
@@ -9,6 +9,7 @@ Je le perçois dans l'eau.
 3
 00:00:41,619 --> 00:00:43,612
 Je le ressens dans la terre.
+lkjnklj
 
 4
 00:00:46,040 --> 00:00:48,447
