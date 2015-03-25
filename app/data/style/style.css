@@ -1,0 +1,534 @@
+::-webkit-scrollbar {
+    /* Scrollbars */
+    
+    width: 14px;
+    height: 14px;
+}
+
+::-webkit-scrollbar-track-piece {
+    /* Fond */
+    
+    background: transparent none;
+    border: solid 4px transparent;
+    border-right-width: 8px;
+    margin: 4px;
+    -webkit-box-shadow: inset 1px 1px 0 0 #E2E2E2, inset -1px -1px 0 0 #E2E2E2;
+}
+
+::-webkit-scrollbar-track-piece: horizontal {
+    /* Fond pour la barre du bas */
+    
+    border-right-width: 4px;
+    border-bottom-width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    /* Barre */
+    
+    border: solid 0 transparent;
+    border-right-width: 4px;
+    -webkit-border-radius: 5px;
+    -webkit-border-top-right-radius: 9px 5px;
+    -webkit-border-bottom-right-radius: 9px 5px;
+    -webkit-box-shadow: inset 0 0 0 6px rgb(102, 102, 102);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    /* Barre */
+    
+    -webkit-box-shadow: inset 0 0 0 6px rgb(120, 120, 120);
+}
+
+::-webkit-scrollbar-thumb: horizontal {
+    /* Barre du bas */
+    
+    border-right-width: 0;
+    border-bottom-width: 4px;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px 9px;
+    -webkit-border-bottom-left-radius: 5px 9px;
+}
+
+::-webkit-scrollbar-button {
+    /* Boutons */
+    
+    height: 26px;
+    background: url(data/images/webkit-arrows-vert.png) 1px 50% no-repeat, url(data/images/bg-blog-repeat.png) 0 0 no-repeat;
+}
+
+::-webkit-scrollbar-button: increment {
+    /* Bouton pour descendre */
+    
+    background-position: -19px 50%;
+}
+
+::-webkit-scrollbar-button: horizontal {
+    /* Boutons horizontaux */
+    
+    width: 26px;
+    background: url(data/images/webkit-arrows-horiz.png) 50% 1px no-repeat, url(data/images/bg-blog-repeat.png) 0 0 no-repeat;
+}
+
+::-webkit-scrollbar-button: horizontal: increment {
+    /* Bouton pour aller à droite */
+    
+    background-position: 50% -19px;
+}
+
+html {
+    background: rgba(0, 0, 0, 0);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'open_sansregular';
+    -webkit-user-select: none;
+}
+
+#window-content {
+    position: absolute;
+    overflow: hidden;
+    background: #333;
+    top: 75px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    border-radius: 0 0 5px 5px;
+}
+
+#window-bar {
+    position: absolute;
+    background: #222;
+    width: 100%;
+    height: 30px;
+    border-radius: 5px 5px 0 0;
+    z-index: 10000;
+}
+
+#window-bar .header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 205px;
+    float: left;
+    color: white;
+    height: 30px;
+    line-height: 30px;
+}
+
+#window-bar .header span {
+    margin-left: 5px;
+    font-size: 15px;
+}
+
+#window-bar .header img {
+    height: 24px;
+    float: left;
+    margin-top: 3px;
+    margin-left: 3px;
+}
+
+#window-bar .window-control {
+    float: right;
+    border: none;
+    width: 35px;
+    height: 20px;
+    padding: 0;
+    margin-left: 3px;
+    margin-top: 5px;
+    z-index: 9999999999;
+    transition: all 0.3s;
+    border-radius: 2px;
+}
+
+#window-bar .window-control.close {
+    background: #aa0000 url(../images/close.svg) center;
+    margin-right: 5px;
+    width: 45px;
+}
+
+#window-bar .window-control.maximize {
+    background-image: url(../images/maximize.svg);
+}
+
+#window-bar .window-control.minimize {
+    background: url(../images/minimize.svg);
+}
+
+#window-bar .window-control.dev {
+    background: url(../images/developer.svg);
+}
+
+#window-bar .window-control.reload {
+    background: url(../images/reload.svg);
+}
+
+#window-bar .window-control.dev:hover {
+    background: #555 url(../images/developer.svg);
+}
+
+#window-bar .window-control.reload:hover {
+    background: #555 url(../images/reload.svg);
+}
+
+#window-bar .window-control.close:hover {
+    background-color: #d40000;
+}
+
+#window-bar .window-control.maximize:hover {
+    background-color: #555;
+}
+
+#window-bar .window-control.minimize:hover {
+    background-color: #555;
+}
+
+nav {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    background: #222;
+    border-bottom: 5px solid #df6300;
+    height: 40px;
+    z-index: 200000;
+}
+
+nav .window-menu {
+    padding: 0;
+    margin: 0;
+    height: 40px;
+    margin-left: 5px;
+}
+
+nav .window-menu li {
+    color: white;
+    float: left;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-top: 5px;
+    list-style: none;
+    line-height: 30px;
+    transition: all 0.3s;
+    cursor: default;
+    border-radius: 3px;
+}
+
+nav .window-menu li:hover {
+    background: #555;
+}
+
+@-webkit-keyframes fadeInBlock {
+    from {
+        display: none;
+        opacity: 0;
+    }
+    to {
+        display: block;
+        opacity: 1;
+    }
+}
+
+nav .window-menu li .submenu {
+    position: absolute;
+    float: left;
+    margin-top: 0px;
+    margin-left: -5px;
+    padding-top: 10px;
+    border-radius: 0 0 3px 3px;
+    overflow: hidden;
+    display: none;
+}
+
+nav .window-menu li:hover .submenu {
+    display: block;
+}
+
+nav .window-menu li .submenu ul {
+    padding: 0;
+    margin: 0;
+}
+
+nav .window-menu li .submenu ul li {
+    color: white;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-top: 0;
+    list-style: none;
+    line-height: 30px;
+    transition: all 0.3s;
+    cursor: default;
+    border-radius: 0;
+    float: none;
+    background: #c94900;
+}
+
+nav .window-menu li .submenu li:hover {
+    background: #f25800;
+}
+
+#freeze {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100000000000000000000000;
+    overflow: hidden;
+    display: none;
+}
+
+#pushwindow {
+    position: fixed;
+    top: 30px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000000000000000000000000000000;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#pushwindow>div {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 325px;
+    height: 200px;
+    background: white;
+    border-radius: 3px;
+    margin: auto;
+}
+
+#pushwindow>div.save {
+    width: 400px;
+}
+
+#pushwindow>div h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    line-height: 25px;
+    margin-left: 5%;
+    margin-top: 5px;
+    font-family: 'open_sansbold';
+}
+
+#pushwindow>div .message {
+    display: block;
+    width: 90%;
+    overflow: hidden;
+    height: 100px;
+    padding: 0;
+    margin-left: 5%;
+    font-size: 14px;
+    line-height: 15px;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+#pushwindow>div .buttonZone {
+    position: absolute;
+    right: 5px;
+    bottom: 0px;
+    left: 5px;
+}
+
+#pushwindow>div .button {
+    position: relative;
+    float: right;
+    bottom: 5px;
+    font-family: 'open_sansbold';
+    font-size: 20px;
+    line-height: 20px;
+    padding: 5px;
+    border-radius: 3px;
+    color: #008d7e;
+    cursor: default;
+    min-width: 50px;
+    text-align: center;
+    margin-left: 5.5px;
+    transition: all 0.1s;
+}
+
+#pushwindow>div .button.second {
+    font-family: 'open_sansbold_italic';
+    color: #555;
+}
+
+#pushwindow>div .button:hover {
+    color: white;
+    background: #008d7e;
+}
+
+#pushwindow>div .button.second:hover {
+    color: white;
+    background: #555;
+}
+
+#body {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 75px;
+}
+
+#body .centered-message {
+    display: table;
+    position: static;
+    margin: auto;
+    margin-top: 18%;
+    color: white;
+    font-size: 25px;
+}
+
+@-webkit-keyframes bounceInf {
+    from {
+        -webkit-transform: scale(1, 1);
+    }
+    to {
+        -webkit-transform: scale(0.9, 0.9);
+    }
+}
+
+#body .filedragover {
+    position: fixed;
+    top: 75px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 450px;
+    height: 450px;
+    background: #aa4400 url(../images/srtlogo.svg) center 100px no-repeat;
+    border-radius: 50%;
+    overflow: hidden;
+    display: table;
+    color: white;
+    margin: auto;
+    text-align: center;
+    -webkit-animation-duration: 0.7s;
+    -webkit-animation-name: 'bounceInf';
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-timing-function: ease-in;
+    display: none;
+}
+
+#body .filedragover h1 {
+    margin-top: 300px;
+}
+
+#workingGUI {
+    display: none;
+}
+
+#body .bottomMenu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 130px;
+    background: #212121;
+    border-top: 1px solid #666;
+}
+
+#body .replicaList {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 130px;
+    top: 0;
+    overflow: auto;
+}
+
+#body .replicaList .item {
+    background: #ad4d00;
+    width: 98%;
+    margin: auto;
+    height: 100px;
+    border-radius: 3px;
+    color: white;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+#body .replicaList .item:last-child {
+    margin-bottom: 5px;
+}
+
+#body .replicaList .item .rank {
+    float: left;
+    min-width: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100px;
+    font-size: 50px;
+    line-height: 100px;
+    font-family: 'open_sansbold';
+    text-align: center;
+}
+
+#body .replicaList .item .timecode {
+    float: right;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    margin: 0;
+    margin-right: 20px;
+    padding: 0;
+    font-family: 'open_sanssemibold';
+}
+
+#body .replicaList .item .replica {
+    float: left;
+    height: 100px;
+    line-height: 98px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+#body .replicaList .item .replica span {
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 0;
+    /* on rétablit le line-height */
+    
+    text-align: left;
+    font-family: 'open_sansbold_italic';
+}
+
+@-webkit-keyframes load {
+    from {
+        stroke-dashoffset: 0;
+    }
+    to {
+        stroke-dashoffset: 285;
+    }
+}
+
+.loader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 300px;
+    height: 300px;
+    z-index: 9999999999999999999999999999999999999;
+    overflow: initial;
+}
+
+.loader img {
+    width: 300px;
+}

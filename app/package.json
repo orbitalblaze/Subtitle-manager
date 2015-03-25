@@ -1,0 +1,26 @@
+{
+    "main": "index.html",
+    "name": "Subtitle_Manager",
+    "description": "Gerez vos fichiers sous-titre, recalez-les et faites-en des extraits",
+    "version": "1.0.0",
+    "keywords": ["subtitle", "manager", "weexa studio"],
+    "single-instance": true,
+    "window": {
+        "title": "Subtitle Manager",
+        "icon": "data/images/logo.png",
+        "toolbar": false,
+        "frame": false,
+        "width": 750,
+        "height": 550,
+        "position": "center",
+        "min_width": 750,
+        "min_height": 550,
+        "resizable": true,
+        "transparent": true
+    },
+    "webkit": {
+        "plugin": true
+    },
+    "devtools": true,
+    "bugs": "http://127.0.0.1/"
+}
