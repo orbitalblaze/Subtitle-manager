@@ -18,6 +18,7 @@
         });
 
     });
+    
 })(jQuery);
 var work = {
     do: {

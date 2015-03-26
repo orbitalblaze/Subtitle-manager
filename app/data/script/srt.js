@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-function formatTimecode(timecodes) {
+function parseTimecode(timecodes) {
     var timecode = timecodes.split(" --> ");
     var result = new Array();
     for (var i = 0; i < timecode.length; i++) {
@@ -69,19 +69,31 @@ function openFile(path) {
         encoding: "utf8"
     });
     file = file.split('\r\n\r\n');
+    var treatedFile = new Array();
+    var k = 0;
     for (var i = 0; i < file.length; i++) {
         var replicaInfos = file[i].split('\r\n');
-        file[i] = {
-            rank: replicaInfos[0],
-            timecode: formatTimecode(replicaInfos[1]),
-        };
-        file[i].replica = replicaInfos[2];
-        for (var j = 3; j < replicaInfos.length; j++) {
-            file[i].replica += "\r\n" + replicaInfos[j];
+        if (file[i] == "\r\n" || file[i] == "") {
+            console.log("bad");
+        } else {
+            treatedFile[k] = {
+                rank: replicaInfos[0],
+                timecode: parseTimecode(replicaInfos[1]),
+            };
+            treatedFile[k].replica = replicaInfos[2];
+            for (var j = 3; j < replicaInfos.length; j++) {
+                treatedFile[k].replica += "\r\n" + replicaInfos[j];
+            }
+            k++;
         }
+
+
+
     }
 
-    return file;
+
+
+    return treatedFile;
 }
 
 function prettifyTimecode(tc) {
@@ -90,7 +102,7 @@ function prettifyTimecode(tc) {
         var s = tc.sec;
         var m = tc.min;
         var h = tc.hour;
-       if(h<0 || m<0 || s<0 || ms<0){
+        if (h < 0 || m < 0 || s < 0 || ms < 0) {
             h = 0;
             m = 0;
             s = 0;
@@ -131,19 +143,19 @@ function prettifyTimecode(tc) {
             start: tc.start.hour,
             end: tc.end.hour
         };
-        if(h.start<0 || m.start<0 || s.start<0 || ms.start<0){
+        if (h.start < 0 || m.start < 0 || s.start < 0 || ms.start < 0) {
             h.start = 0;
             m.start = 0;
             s.start = 0;
             ms.start = 0;
         }
-        if(h.end<0 || m.end<0 || s.end<0 || ms.end<0){
+        if (h.end < 0 || m.end < 0 || s.end < 0 || ms.end < 0) {
             h.end = 0;
             m.end = 0;
             s.end = 0;
             ms.end = 0;
         }
-        
+
 
         if (m.start < 10) {
             m.start = "0" + m.start;
@@ -180,7 +192,8 @@ function prettifyTimecode(tc) {
     return result;
 
 }
-function saveFile(path) {
+
+function saveFile(path, cb) {
     /*
     app.currentFile[x] = {
         rank: (int),
@@ -201,9 +214,15 @@ function saveFile(path) {
         }
     }
     */
-
+    fs.writeFileSync(path, "", {
+        encoding: "utf8"
+    });
     for (var i = 0; i < app.currentFile.length; i++) {
-        
+        var replica = app.currentFile[i].rank + "\r\n" + prettifyTimecode(app.currentFile[i].timecode) + "\r\n" + app.currentFile[i].replica + "\r\n\r\n";
+        fs.appendFileSync(path, replica, {
+            encoding: "utf8"
+        });
     }
-    return false;
+
+    return cb(true);
 }

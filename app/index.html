@@ -11,25 +11,26 @@
 
 <body>
     <div class="loader">
-       <img src="data/images/loading-spin.svg">
+        <img src="data/images/loading-spin.svg">
     </div>
     <div id="freeze">
     </div>
     <input type="file" id="openFileInput" style="display: none;" accept=".srt">
+    <input type="file" id="saveFileInput" style="display: none;" nwsaveas accept=".srt">
     <div id="pushwindow" style="display: none;">
         <div class="alert" style="display: none;">
-            <h1>Message</h1>
-            <div class="message">desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc </div>
+            <h1></h1>
+            <div class="message"></div>
             <div class="buttonZone">
                 <div class="button">Ok</div>
             </div>
         </div>
         <div class="confirm" style="display: none;">
-            <h1>Question ?</h1>
-            <div class="message">desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc desc </div>
+            <h1></h1>
+            <div class="message"></div>
             <div class="buttonZone">
                 <div class="button ok">Ok</div>
-                <div class="button abort">Annuler</div>
+                <div class="button abort second">Annuler</div>
             </div>
         </div>
         <div class="save" style="display: none;">
@@ -57,8 +58,8 @@
                 <div class="submenu">
                     <ul>
                         <li id="openMenu">Ouvrir</li>
-                        <li>Enregister</li>
-                        <li>Enregister sous</li>
+                        <li id="saveMenu">Enregister</li>
+                        <li id="saveasMenu">Enregister sous</li>
                         <li>Nouveau projet</li>
                         <li>Fermer</li>
                     </ul>
@@ -103,13 +104,13 @@
             <div id="workingGUI">
                 <div class="replicaList">
                     <div class="item">
-                        <div class="rank">01</div>
-                        <div class="timecode">01:56:23,458 --> 01:56:56,123</div>
-                        <div class="replica">"Bien des choses d'antan↵Sont perdues,"</div>
+                        <div class="rank"></div>
+                        <div class="timecode"></div>
+                        <div class="replica">""</div>
                     </div>
                 </div>
                 <div class="bottomMenu">
-                <input type="meter">
+                    <input type="range" min="-20" max="20" value="0" id="fader" step="1">
                 </div>
             </div>
         </div>

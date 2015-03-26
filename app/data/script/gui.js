@@ -35,7 +35,7 @@ var app = {
             });
             $(document).on('confirmAbort', function(event) {
                 event.preventDefault();
-                cbe(false);
+                cbe(event);
             });
         }
     },
@@ -46,7 +46,8 @@ var app = {
         }
     },
     currentFile: false,
-    currentFilePath: false
+    currentFilePath: false,
+    savePath: false
 };
 $("#pushwindow .alert .button").click(function(event) {
     $("#pushwindow").css('display', 'none');
@@ -151,6 +152,14 @@ function getExtension(filename) {
         $("#openMenu").click(function(event) {
             event.preventDefault();
             $("#openFileInput").click();
+        });
+        $("#saveMenu").click(function(event) {
+            event.preventDefault();
+            app.gui.confirm("Voulez vous vraiment écraser le fichier d'origine ?", "Cliquez sur Ok pour accepter ou sur annuler pour abandonner l'action.", function(r){
+                if(r){
+                    
+                }
+            });
         });
         $("#openFileInput").change(function(event) {
             if ((getExtension($(this).val()) == "srt") || (getExtension($(this).val()) == "SRT")) {
