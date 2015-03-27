@@ -140,7 +140,7 @@ function getExtension(filename) {
             $(".filedragover").fadeOut("fast");
             $("#freeze").css('display', 'none');
             var files = event.originalEvent.dataTransfer.files;
-            if ((getExtension(files[0].name) == "srt") || (getExtension(files[0].name) == "SRT" )) {
+            if ((getExtension(files[0].name) == "srt") || (getExtension(files[0].name) == "SRT")) {
                 app.currentFile = openFile(files[0].path);
                 app.currentFilePath = files[0].path;
                 $(document).trigger('fileReady');
@@ -153,12 +153,38 @@ function getExtension(filename) {
             event.preventDefault();
             $("#openFileInput").click();
         });
+        $("#saveasMenu").click(function(event) {
+            event.preventDefault();
+            if (app.currentFilePath != false) {
+                $("#saveFileInput").click();
+            }
+        });
         $("#saveMenu").click(function(event) {
             event.preventDefault();
-            app.gui.confirm("Voulez vous vraiment écraser le fichier d'origine ?", "Cliquez sur Ok pour accepter ou sur annuler pour abandonner l'action.", function(r){
-                if(r){
-                    
+            if (app.currentFilePath != false) {
+                if (app.savePath == false) {
+                    $("#saveFileInput").click();
+                } else {
+                    app.gui.confirm("Voulez vous vraiment écraser le fichier actuel ?", "Cliquez sur Ok pour accepter ou sur annuler pour abandonner l'action.", function(r) {
+                        if (r == true) {
+                            saveFile(app.savePath, function() {
+                                app.gui.alert("Enregistrement terminé", "");
+                            });
+                        }
+                    });
                 }
+            }
+
+
+
+
+        });
+        $("#saveFileInput").change(function(event) {
+            app.currentFilePath = $(this).val();
+            app.savePath = $(this).val();
+            app.win.title("Subtitle Manager - " + app.currentFilePath);
+            saveFile(app.savePath, function() {
+                app.gui.alert("Enregistrement terminé", "");
             });
         });
         $("#openFileInput").change(function(event) {
@@ -167,6 +193,8 @@ function getExtension(filename) {
                 app.currentFilePath = $(this).val();
                 $(document).trigger('fileReady');
                 app.win.title("Subtitle Manager - " + app.currentFilePath);
+            } else if ($(this).val() == "") {
+                return;
             } else {
                 app.gui.alert("Mauvaise extension", "Le fichier ne peut être ouvert par Subtitle Manager, il n'est pas au format .srt");
             }
