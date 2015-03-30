@@ -35,7 +35,7 @@ var app = {
             });
             $(document).on('confirmAbort', function(event) {
                 event.preventDefault();
-                cbe(event);
+                cbe(false);
             });
         }
     },

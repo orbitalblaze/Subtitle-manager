@@ -534,12 +534,13 @@ nav .window-menu li .submenu li:hover {
 }
 input[type=range]{
     -webkit-appearance: none;
+    background: none;
 }
-
 input[type=range]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
     width: 300px;
     height: 5px;
-    background: #ddd;
+    background: #555;
     border: none;
     border-radius: 3px;
 }
@@ -549,14 +550,21 @@ input[type=range]::-webkit-slider-thumb {
     border: none;
     height: 20px;
     width: 10px;
-    background: goldenrod;
-    margin-top: -4px;
+    background: #df6300;
+    margin-top: -7px;
+    border-radius: 3px;
+}
+input[type=range]::-webkit-slider-thumb:after{
+    
 }
 
 input[type=range]:focus {
     outline: none;
 }
-
-input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #ccc;
+#timecodeChanger{
+    position: relative;
+    left: 0;
+    right: 0;
+    width: 90%;
+    margin-left: 5%;
 }
