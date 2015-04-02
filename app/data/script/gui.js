@@ -64,7 +64,22 @@ $("#pushwindow .confirm .button.ok").click(function(event) {
     $("#pushwindow .confirm").css('display', 'none');
     $(document).trigger('confirmAccept');
 });
+$("#timecodeChanger").change(function(event) {
+    //se déclenche lorsque c'est le bon décalage
+    $(document).trigger('pitchTimecode', {
+        hour:"zefzef",
+        min:"zefzef",
+        sec:"zefzef",
+        milis:"zefzef"
+    });
 
+    $("#timecodeChanger").val(0);
+});
+$("#timecodeChanger").on('input', function(event) {
+    event.preventDefault();
+    //se déclenche lorsque l'utilisateur bouge le selecteur
+
+});
 function getExtension(filename) {
         var parts = filename.split(".");
         return (parts[(parts.length - 1)]);
