@@ -34,6 +34,7 @@ var work = {
         },
         timeCodeCut: function(from, to) {
 
-        }
+        },
+        findReplica
     }
 };
