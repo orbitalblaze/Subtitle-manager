@@ -18,7 +18,7 @@
         });
 
     });
-    
+
 })(jQuery);
 var work = {
     do: {
@@ -35,6 +35,42 @@ var work = {
         timeCodeCut: function(from, to) {
 
         },
-        findReplica
-    }
+        findReplica: function(selector) {
+            var result = new Array();
+            var l = 0;
+            for (var i = 0; i < app.currentFile.length; i++) {
+                var tempResult = app.currentFile[i].replica.indexOf(selector, 0);
+                if (tempResult != -1) {
+                    result[l] = {
+                        id: i,
+                        index: tempResult
+                    };
+                    l++;
+                }
+                var k = 1;
+                while (tempResult != -1) {
+                    var tempResult = app.currentFile[i].replica.indexOf(selector, k);
+                    if (tempResult != -1) {
+                        k++;
+                        result[l] = {
+                            id: i,
+                            index: tempResult
+                        };
+                        l++;
+                    }
+                }
+            }
+
+
+
+        }
+
+
+
+
+
+    };
+}
+
+}
 };
