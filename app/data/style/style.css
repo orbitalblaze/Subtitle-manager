@@ -568,3 +568,21 @@ input[type=range]:focus {
     width: 90%;
     margin-left: 5%;
 }
+.bubbleValue{
+    position: relative;
+    z-index: 999999999999999999999999999999999999999;
+    margin-top: -40px;
+    display: table;
+    content: attr(class);
+    margin-left: calc(20 * (90%/40) + (5% - 67px));
+    height: 20px;
+    width: 120px;
+    background: #777;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    display: none;
+}

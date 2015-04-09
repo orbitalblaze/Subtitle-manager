@@ -73,12 +73,14 @@ $("#timecodeChanger").change(function(event) {
         milis:"zefzef"
     });
 
+    $(".bubbleValue").fadeOut("fast");
     $("#timecodeChanger").val(0);
 });
 $("#timecodeChanger").on('input', function(event) {
     event.preventDefault();
+    $(".bubbleValue").fadeIn("fast");
     //se déclenche lorsque l'utilisateur bouge le selecteur
-
+    $(".bubbleValue").text($("#timecodeChanger").val());
 });
 function getExtension(filename) {
         var parts = filename.split(".");
