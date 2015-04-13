@@ -52,7 +52,6 @@ function findReplica(selector) {
 function replaceReplica(selector, str){
     var indexes = findReplica(selector);
     for(var i = 0; i < indexes.length; i++){
-        console.log(indexes[i].id + " | " + i);
         app.currentFile[indexes[i].id].replica = app.currentFile[indexes[i].id].replica.replace(selector, str); 
         
     }

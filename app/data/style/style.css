@@ -561,7 +561,7 @@ input[type=range]::-webkit-slider-thumb:after{
 input[type=range]:focus {
     outline: none;
 }
-#timecodeChanger{
+#timecodeChanger, #timecodeChangerms,#timecodeChangerm{
     position: relative;
     left: 0;
     right: 0;

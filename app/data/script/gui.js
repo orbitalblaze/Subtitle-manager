@@ -76,12 +76,89 @@ $("#timecodeChanger").change(function(event) {
     $(".bubbleValue").fadeOut("fast");
     $("#timecodeChanger").val(0);
 });
+
+
 $("#timecodeChanger").on('input', function(event) {
     event.preventDefault();
     $(".bubbleValue").fadeIn("fast");
     //se déclenche lorsque l'utilisateur bouge le selecteur
-    $(".bubbleValue").text($("#timecodeChanger").val());
+    $(".bubbleValue").text($("#timecodeChanger").val() + "s");
 });
+$("#timecodeChanger").change(function(event) {
+    //se déclenche lorsque c'est le bon décalage
+    $(document).trigger('pitchTimecode', {
+        hour:"zefzef",
+        min:"zefzef",
+        sec:"zefzef",
+        milis:"zefzef"
+    });
+
+    $(".bubbleValue").fadeOut("fast");
+    $("#timecodeChanger").val(0);
+});
+$("#timecodeChanger").on('input', function(event) {
+    event.preventDefault();
+    $(".bubbleValue").fadeIn("fast");
+    //se déclenche lorsque l'utilisateur bouge le selecteur
+    $(".bubbleValue").text($("#timecodeChanger").val() + "s");
+});
+
+
+
+$("#timecodeChangerms").on('input', function(event) {
+    event.preventDefault();
+    $(".bubbleValue").fadeIn("fast");
+    //se déclenche lorsque l'utilisateur bouge le selecteur
+    $(".bubbleValue").text($("#timecodeChanger").val() + " s");
+});
+$("#timecodeChangerms").change(function(event) {
+    //se déclenche lorsque c'est le bon décalage
+    $(document).trigger('pitchTimecode', {
+        hour:"zefzef",
+        min:"zefzef",
+        sec:"zefzef",
+        milis:"zefzef"
+    });
+
+    $(".bubbleValue").fadeOut("fast");
+    $("#timecodeChangerms").val(0);
+});
+$("#timecodeChangerms").on('input', function(event) {
+    event.preventDefault();
+    $(".bubbleValue").fadeIn("fast");
+    //se déclenche lorsque l'utilisateur bouge le selecteur
+    $(".bubbleValue").text($("#timecodeChangerms").val() + " s");
+});
+
+
+
+$("#timecodeChangerm").on('input', function(event) {
+    event.preventDefault();
+    $(".bubbleValue").fadeIn("fast");
+    //se déclenche lorsque l'utilisateur bouge le selecteur
+    $(".bubbleValue").text($("#timecodeChanger").val() + " s");
+});
+$("#timecodeChangerm").change(function(event) {
+    //se déclenche lorsque c'est le bon décalage
+    $(document).trigger('pitchTimecode', {
+        hour:"zefzef",
+        min:"zefzef",
+        sec:"zefzef",
+        milis:"zefzef"
+    });
+
+    $(".bubbleValue").fadeOut("fast");
+    $("#timecodeChangerm").val(0);
+});
+$("#timecodeChangerm").on('input', function(event) {
+    event.preventDefault();
+    $(".bubbleValue").fadeIn("fast");
+    //se déclenche lorsque l'utilisateur bouge le selecteur
+    $(".bubbleValue").text($("#timecodeChangerm").val() + " s");
+});
+
+
+
 function getExtension(filename) {
         var parts = filename.split(".");
         return (parts[(parts.length - 1)]);
