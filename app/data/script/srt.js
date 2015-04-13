@@ -86,13 +86,7 @@ function openFile(path) {
             }
             k++;
         }
-
-
-
     }
-
-
-
     return treatedFile;
 }
 
@@ -108,7 +102,6 @@ function prettifyTimecode(tc) {
             s = 0;
             ms = 0;
         }
-
         if (m < 10) {
             m = "0" + m;
         }
@@ -123,9 +116,7 @@ function prettifyTimecode(tc) {
         if (s < 10) {
             s = "0" + s;
         }
-
         var result = h + ":" + m + ":" + s + "," + ms;
-
     } else {
         var ms = {
             start: tc.start.milis,
@@ -155,8 +146,6 @@ function prettifyTimecode(tc) {
             s.end = 0;
             ms.end = 0;
         }
-
-
         if (m.start < 10) {
             m.start = "0" + m.start;
         }
@@ -190,9 +179,7 @@ function prettifyTimecode(tc) {
         var result = h.start + ":" + m.start + ":" + s.start + "," + ms.start + " --> " + h.end + ":" + m.end + ":" + s.end + "," + ms.end;
     }
     return result;
-
 }
-
 function saveFile(path, cb) {
     /*
     app.currentFile[x] = {
@@ -223,6 +210,5 @@ function saveFile(path, cb) {
             encoding: "utf8"
         });
     }
-
     return cb(true);
 }
