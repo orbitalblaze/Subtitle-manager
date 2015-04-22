@@ -18,6 +18,16 @@
         });
 
     });
+    $(document).on('pitchTimecode', function(event, tcp) {
+        for (var i = 0; i < app.currentFile.length; i++) {
+                app.currentFile[i].timecode.start = timecodeOperations(tcp, app.currentFile[i].timecode.start);
+                app.currentFile[i].timecode.end = timecodeOperations(tcp, app.currentFile[i].timecode.end);
+            } 
+            $("#body .replicaList").html("");
+            for (var i = 0; i < app.currentFile.length; i++) {
+                $("#body .replicaList").append('<div class="item"><div class="rank">' + app.currentFile[i].rank + '</div> <div class="timecode">' + prettifyTimecode(app.currentFile[i].timecode) + '</div><div class="replica">"' + app.currentFile[i].replica + '"</div></div>')
+            }
+    });
 
 })(jQuery);
 
