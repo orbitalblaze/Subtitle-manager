@@ -434,7 +434,7 @@ nav .window-menu li .submenu li:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    height: 130px;
+    height: 150px;
     background: #212121;
     border-top: 1px solid #666;
 }
@@ -583,4 +583,14 @@ input[type=range]:focus {
     line-height: 20px;
     text-align: center;
     display: none;
+}
+.bottomMenu label{
+    margin: 0;
+    padding: 0;
+    line-height: 15px;
+    color: white;
+    font-size: 15px;
+    font-family: 'open_sansregular';
+    margin-left: 5%;
+    height: 15px;
 }
