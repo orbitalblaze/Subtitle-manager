@@ -63,39 +63,27 @@ $("#pushwindow .confirm .button.ok").click(function(event) {
 });
 $("#timecodeChanger").change(function(event) {
     //se déclenche lorsque c'est le bon décalage
-    var value = $(this).val().split(".");
-    value[0] = parseInt(value[0]);
-    value[1] = parseInt(value[1]);
-    $(document).trigger('pitchTimecode', [{
-        hour: 0,
-        min: 0,
-        sec: value[0],
-        milis: value[1]
-    }]);
-    $(".bubbleValue").fadeOut("fast");
-    $("#timecodeChanger").val(0);
-});
-$("#timecodeChanger").on('input', function(event) {
-    event.preventDefault();
-    $(".bubbleValue").fadeIn("fast");
-    //se déclenche lorsque l'utilisateur bouge le selecteur
-    $(".bubbleValue").text($("#timecodeChanger").val() + "s");
-});
-$("#timecodeChanger").change(function(event) {
-    //se déclenche lorsque c'est le bon décalage
     var neg = $(this).val().search("-");
-    $(this).val().replace("-","");
-    if (neg != -1) {
-        neg = -10;
-    } else {
-        neg = 10;
-    }
+    $(this).val().replace("-", "");
     var value = $(this).val().split(".");
-    if(value[1] == undefined){
+    if (value[1] == undefined) {
         value[1] = 0;
     }
     value[0] = parseInt(value[0]);
     value[1] = parseInt(value[1]);
+    if (neg != -1) {
+        if (value[1] < 10) {
+            neg = -100;
+        } else {
+            neg = -10;
+        }
+    } else {
+        if (value[1] < 10) {
+            neg = 100;
+        } else {
+            neg = 10;
+        }
+    }
     console.log(value[0] + "," + value[1]);
     $(document).trigger('pitchTimecode', {
         hour: 0,
@@ -121,18 +109,26 @@ $("#timecodeChangerms").on('input', function(event) {
 $("#timecodeChangerms").change(function(event) {
     //se déclenche lorsque c'est le bon décalage
     var neg = $(this).val().search("-");
-    $(this).val().replace("-","");
-    if (neg != -1) {
-        neg = -1;
-    } else {
-        neg = 1;
-    }
+    $(this).val().replace("-", "");
     var value = $(this).val().split(".");
-    if(value[1] == undefined){
+    if (value[1] == undefined) {
         value[1] = 0;
     }
     value[0] = parseInt(value[0]);
     value[1] = parseInt(value[1]);
+    if (neg != -1) {
+        if (value[1] < 100 && value[1] > 9) {
+            neg = -10;
+        } else {
+            neg = -1;
+        }
+    } else {
+        if (value[1] < 100 && value[1] > 9) {
+            neg = 10;
+        } else {
+            neg = 1;
+        }
+    }
     console.log(value[0] + "," + value[1]);
     $(document).trigger('pitchTimecode', {
         hour: 0,
@@ -158,19 +154,19 @@ $("#timecodeChangerm").on('input', function(event) {
 $("#timecodeChangerm").change(function(event) {
     //se déclenche lorsque c'est le bon décalage
     var neg = $(this).val().search("-");
-    $(this).val().replace("-","");
-    if (neg != -1) {
-        neg = -100;
-    } else {
-        neg = 100;
-    }
+    $(this).val().replace("-", "");
     var value = $(this).val().split(".");
-    if(value[1] == undefined){
+    if (value[1] == undefined) {
         value[1] = 0;
     }
     value[0] = parseInt(value[0]);
     value[1] = parseInt(value[1]);
-    
+    if (neg != -1) {
+            neg = -100;
+      
+    } else {
+            neg = 100;
+    }
     console.log(value[0] + "," + value[1]);
     $(document).trigger('pitchTimecode', {
         hour: 0,
