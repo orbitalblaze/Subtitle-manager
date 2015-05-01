@@ -1,130 +1,130 @@
 <!doctype html>
 <html>
-
-<head>
-    <title>Subtitle Manager</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" href="data/style/fontload.css">
-    <link rel="stylesheet" type="text/css" href="data/style/style.css">
-    <link rel="stylesheet" type="text/css" href="data/style/animate.css">
-</head>
-
-<body>
-    <div class="loader">
-        <img src="data/images/loading-spin.svg">
-    </div>
-    <div id="freeze">
-    </div>
-    <input type="file" id="openFileInput" style="display: none;" accept=".srt">
-    <input type="file" id="saveFileInput" style="display: none;" nwsaveas accept=".srt">
-    <div id="pushwindow" style="display: none;">
-        <div class="alert" style="display: none;">
-            <h1></h1>
-            <div class="message"></div>
-            <div class="buttonZone">
-                <div class="button">Ok</div>
+    <head>
+        <title>Subtitle Manager</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="data/style/fontload.css">
+        <link rel="stylesheet" type="text/css" href="data/style/style.css">
+        <link rel="stylesheet" type="text/css" href="data/style/animate.css">
+    </head>
+    <body>
+        <div class="loader">
+            <img src="data/images/loading-spin.svg">
+        </div>
+        <div id="freeze">
+        </div>
+        <input type="file" id="openFileInput" style="display: none;" accept=".srt">
+        <input type="file" id="saveFileInput" style="display: none;" nwsaveas accept=".srt">
+        <div id="pushwindow" style="display: none;">
+            <div class="alert" style="display: none;">
+                <h1></h1>
+                <div class="message"></div>
+                <div class="buttonZone">
+                    <div class="button">Ok</div>
+                </div>
+            </div>
+            <div class="confirm" style="display: none;">
+                <h1></h1>
+                <div class="message"></div>
+                <div class="buttonZone">
+                    <div class="button ok">Ok</div>
+                    <div class="button abort second">Annuler</div>
+                </div>
+            </div>
+            <div class="save" style="display: none;">
+                <h1>Voulez-vous vraiment quitter sans enregister ?</h1>
+                <div class="message">Des modifications sur votre travail ont été opéré sans être enregister, voulez-vous vraiment continuer ?</div>
+                <div class="buttonZone">
+                    <div class="button">Enregister</div>
+                    <div class="button second">Ne pas Enregister</div>
+                    <div class="button second">Annuler</div>
+                </div>
             </div>
         </div>
-        <div class="confirm" style="display: none;">
-            <h1></h1>
-            <div class="message"></div>
-            <div class="buttonZone">
-                <div class="button ok">Ok</div>
-                <div class="button abort second">Annuler</div>
+        <div id="window-bar">
+            <div class="header" style="-webkit-app-region: drag"><img src="data/images/logo.svg"><span>Subtitle Manager</span>
             </div>
+            <div class="window-control close"></div>
+            <div class="window-control maximize"> </div>
+            <div class="window-control minimize"> </div>
+            <div class="window-control dev"> </div>
+            <div class="window-control reload"> </div>
         </div>
-        <div class="save" style="display: none;">
-            <h1>Voulez-vous vraiment quitter sans enregister ?</h1>
-            <div class="message">Des modifications sur votre travail ont été opéré sans être enregister, voulez-vous vraiment continuer ?</div>
-            <div class="buttonZone">
-                <div class="button">Enregister</div>
-                <div class="button second">Ne pas Enregister</div>
-                <div class="button second">Annuler</div>
-            </div>
-        </div>
-    </div>
-    <div id="window-bar">
-        <div class="header" style="-webkit-app-region: drag"><img src="data/images/logo.svg"><span>Subtitle Manager</span>
-        </div>
-        <div class="window-control close"></div>
-        <div class="window-control maximize"> </div>
-        <div class="window-control minimize"> </div>
-        <div class="window-control dev"> </div>
-        <div class="window-control reload"> </div>
-    </div>
-    <nav>
-        <ul class="window-menu">
-            <li>Fichier
-                <div class="submenu">
-                    <ul>
-                        <li id="openMenu">Ouvrir</li>
-                        <li id="saveMenu">Enregister</li>
-                        <li id="saveasMenu">Enregister sous</li>
-                        <li>Nouveau projet</li>
-                        <li>Fermer</li>
-                    </ul>
+        <nav>
+            <ul class="window-menu">
+                <li>Fichier
+                    <div class="submenu">
+                        <ul>
+                            <li id="openMenu">Ouvrir</li>
+                            <li id="saveMenu">Enregister</li>
+                            <li id="saveasMenu">Enregister sous</li>
+                            <li>Nouveau projet</li>
+                            <li>Fermer</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>Edition
+                    <div class="submenu">
+                        <ul>
+                            <li>Annuler</li>
+                            <li>retablir</li>
+                            <li>Recharger le fichier original</li>
+                            <li>Rechercher / Remplacer</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>Outils
+                    <div class="submenu">
+                        <ul>
+                            <li>Recalage des sous-titres</li>
+                            <li>Découpage des sous-titres</li>
+                            <li>Édition de sous-titre</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>Aide
+                    <div class="submenu">
+                        <ul>
+                            <li>Aide en ligne</li>
+                            <li>Verifier les mises à jour</li>
+                            <li>Site internet Weexa Studio</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div id="window-content">
+            <div id="body">
+                <div class="filedragover">
+                    <h1>Ouvrir le fichier ".srt"</h1>
                 </div>
-            </li>
-            <li>Edition
-                <div class="submenu">
-                    <ul>
-                        <li>Annuler</li>
-                        <li>retablir</li>
-                        <li>Recharger le fichier original</li>
-                        <li>Rechercher / Remplacer</li>
-                    </ul>
-                </div>
-            </li>
-            <li>Outils
-                <div class="submenu">
-                    <ul>
-                        <li>Recalage des sous-titres</li>
-                        <li>Découpage des sous-titres</li>
-                        <li>Édition de sous-titre</li>
-                    </ul>
-                </div>
-            </li>
-            <li>Aide
-                <div class="submenu">
-                    <ul>
-                        <li>Aide en ligne</li>
-                        <li>Verifier les mises à jour</li>
-                        <li>Site internet Weexa Studio</li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </nav>
-    <div id="window-content">
-        <div id="body">
-            <div class="filedragover">
-                <h1>Ouvrir le fichier ".srt"</h1>
-            </div>
-            <p class="centered-message">Ouvrez un fichier de sous-titres (.srt) pour commencer</p>
-            <div id="workingGUI">
-                <div class="replicaList">
-                    <div class="item">
-                        <div class="rank"></div>
-                        <div class="timecode"></div>
-                        <div class="replica">""</div>
+                <p class="centered-message">Ouvrez un fichier de sous-titres (.srt) pour commencer</p>
+                <div id="workingGUI">
+                    <div class="replicaList">
+                        <div class="item">
+                            <div class="rank">
+                                <span class="number">12</span>
+                                <span class="checkbox"><img src="data/images/checkbox.svg"></span>
+                            </div>
+                            <p class="replica"><span>""</span></p>
+                            <div class="timecode"></div>
+                        </div>
+                    </div>
+                    <div class="bottomMenu">
+                        <div class="bubbleValue"></div>
+                        <label>± 60 sec</label><br>
+                        <input type="range" min="-60" max="60" value="0" id="timecodeChangerm" step="0.1"><br>
+                        <label>± 10 sec</label><br>
+                        <input type="range" min="-10" max="10" value="0" id="timecodeChanger" step="0.01"><br>
+                        <label>± 1 sec</label><br>
+                        <input type="range" min="-1" max="1" value="0" id="timecodeChangerms" step="0.001">
                     </div>
                 </div>
-                <div class="bottomMenu">
-                    <div class="bubbleValue"></div>
-                    <label>± 60 sec</label><br>
-                    <input type="range" min="-60" max="60" value="0" id="timecodeChangerm" step="0.1"><br>
-                    <label>± 10 sec</label><br>
-                    <input type="range" min="-10" max="10" value="0" id="timecodeChanger" step="0.01"><br>
-                    <label>± 1 sec</label><br>
-                    <input type="range" min="-1" max="1" value="0" id="timecodeChangerms" step="0.001">
-                </div>
             </div>
         </div>
-    </div>
-    <script type="text/javascript" src="data/script/jquery.js"></script>
-    <script type="text/javascript" src="data/script/gui.js"></script>
-    <script type="text/javascript" src="data/script/srt.js"></script>
-    <script type="text/javascript" src="data/script/work.js"></script>
-</body>
-
+        <script type="text/javascript" src="data/script/jquery.js"></script>
+        <script type="text/javascript" src="data/script/gui.js"></script>
+        <script type="text/javascript" src="data/script/srt.js"></script>
+        <script type="text/javascript" src="data/script/work.js"></script>
+    </body>
 </html>

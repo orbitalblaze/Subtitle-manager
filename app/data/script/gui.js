@@ -45,7 +45,8 @@ var app = {
     },
     currentFile: false,
     currentFilePath: false,
-    savePath: false
+    savePath: false,
+    isSelectedReplica: 0
 };
 $("#pushwindow .alert .button").click(function(event) {
     $("#pushwindow").css('display', 'none');
@@ -162,10 +163,9 @@ $("#timecodeChangerm").change(function(event) {
     value[0] = parseInt(value[0]);
     value[1] = parseInt(value[1]);
     if (neg != -1) {
-            neg = -100;
-      
+        neg = -100;
     } else {
-            neg = 100;
+        neg = 100;
     }
     console.log(value[0] + "," + value[1]);
     $(document).trigger('pitchTimecode', {
@@ -305,5 +305,29 @@ function getExtension(filename) {
         } else {
             app.gui.alert("Mauvaise extension", "Le fichier ne peut être ouvert par Subtitle Manager, il n'est pas au format .srt");
         }
+    });
+    $(document).on("selectSys", function(event) {
+        $(".rank").click(function(event) {
+            event.preventDefault();
+            var elem = $(this);
+            var item = $(this).parent(".item");
+            if (app.currentFile[parseInt(item.attr('id')) - 1].selected == false) {
+                elem.children("span.checkbox").attr("uiselected", "true");
+                elem.children("span.number").fadeOut("fast", function() {
+                    elem.children("span.checkbox").fadeIn("fast");
+                    item.css('border', '3px solid white');
+                });
+                app.currentFile[parseInt(item.attr('id')) - 1].selected = true;
+                app.isSelectedReplica++;
+            } else if (app.currentFile[parseInt(item.attr('id')) - 1].selected == true) {
+                elem.children("span.checkbox").attr("uiselected", "false");
+                elem.children("span.checkbox").fadeOut("fast", function() {
+                    elem.children("span.number").fadeIn("fast");
+                    item.css('border', '3px solid transparent');
+                });
+                app.currentFile[parseInt(item.attr('id')) - 1].selected = false;
+                app.isSelectedReplica--;
+            }
+        });
     });
 })(jQuery);

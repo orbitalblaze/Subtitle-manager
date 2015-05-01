@@ -51,9 +51,9 @@
 
 ::-webkit-scrollbar-button {
     /* Boutons */
-    
-    height: 26px;
-    background: url(data/images/webkit-arrows-vert.png) 1px 50% no-repeat, url(data/images/bg-blog-repeat.png) 0 0 no-repeat;
+    display: none;
+    height: 0px;
+    background: none;
 }
 
 ::-webkit-scrollbar-button: increment {
@@ -63,11 +63,10 @@
 }
 
 ::-webkit-scrollbar-button: horizontal {
-    /* Boutons horizontaux */
-    
-    width: 26px;
-    background: url(data/images/webkit-arrows-horiz.png) 50% 1px no-repeat, url(data/images/bg-blog-repeat.png) 0 0 no-repeat;
-}
+    display: none;
+    height: 0px;
+    background: none;
+}}
 
 ::-webkit-scrollbar-button: horizontal: increment {
     /* Bouton pour aller à droite */
@@ -444,7 +443,7 @@ nav .window-menu li .submenu li:hover {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 130px;
+    bottom: 150px;
     top: 0;
     overflow: auto;
 }
@@ -458,6 +457,7 @@ nav .window-menu li .submenu li:hover {
     color: white;
     margin-top: 10px;
     overflow: hidden;
+    border: 3px solid transparent;
 }
 
 #body .replicaList .item:last-child {
@@ -465,6 +465,7 @@ nav .window-menu li .submenu li:hover {
 }
 
 #body .replicaList .item .rank {
+    cursor: default;
     float: left;
     min-width: 80px;
     padding-left: 10px;
@@ -474,6 +475,14 @@ nav .window-menu li .submenu li:hover {
     line-height: 100px;
     font-family: 'open_sansbold';
     text-align: center;
+}
+#body .replicaList .item .rank .checkbox{
+    display: none;
+}
+#body .replicaList .item .rank .checkbox img{
+    width: 50px;
+    height: 50px;
+    margin-top: 25px;
 }
 
 #body .replicaList .item .timecode {

@@ -79,6 +79,7 @@ function openFile(path) {
             treatedFile[k] = {
                 rank: replicaInfos[0],
                 timecode: parseTimecode(replicaInfos[1]),
+                selected: false
             };
             treatedFile[k].replica = replicaInfos[2];
             for (var j = 3; j < replicaInfos.length; j++) {
