@@ -256,3 +256,23 @@ function testnum(tc1, tc2) {
         return ">";
     }
 }
+
+function tcCompare(tc1, tc2) {
+    var H = testnum(tc1.hour, tc2.hour);
+    var M = testnum(tc1.min, tc2.min);
+    var S = testnum(tc1.sec, tc2.sec);
+    var MS = testnum(tc1.milis, tc2.milis);
+    if (H == "=") {
+        if (M == "=") {
+            if (S == "=") {
+                    return MS;
+            } else {
+                return S;
+            }
+        } else {
+            return M;
+        }
+    } else {
+        return H;
+    }
+}

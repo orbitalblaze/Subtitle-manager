@@ -193,6 +193,10 @@ function getExtension(filename) {
         $("html").css('background', 'rgba(0,0,0,0)', function() {
             win.setTransparent(!win.isTransparent);
         });
+        if(localStorage.getItem("isMaximized") == undefined){
+           localStorage.setItem("isMaximized", false);
+           win.unmaximize()
+        }
     });
     $(".maximize").click(function() {
         if (localStorage.getItem("isMaximized") == "true") {
