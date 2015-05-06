@@ -249,3 +249,12 @@ function replaceReplica(selector, str){
         
     }
 }
+
+function test(tc1, tc2)
+    if(tc1 = tc2) {
+        return "=";
+        else if(tc1 < tc2){
+            return "<";
+            else return ">"
+        }
+    }
