@@ -32,7 +32,6 @@ function timecodeOperations(tcp, tc) {
     var s = tc.sec + tcp.sec;
     var m = tc.min + tcp.min;
     var h = tc.hour + tcp.hour;
-
     if (ms > 999) {
         ms = ms - 1000;
         s = s + 1;
@@ -40,7 +39,6 @@ function timecodeOperations(tcp, tc) {
         s = s - 1;
         ms = ms + 1000; //ms en negatif
     }
-
     if (s > 59) {
         s = s - 60;
         m = m + 1;
@@ -48,7 +46,6 @@ function timecodeOperations(tcp, tc) {
         m = m - 1;
         s = s + 60; // s en negatif
     }
-
     if (m > 59) {
         m = m - 60;
         h = h + 1;
@@ -181,6 +178,7 @@ function prettifyTimecode(tc) {
     }
     return result;
 }
+
 function saveFile(path, cb) {
     /*
     app.currentFile[x] = {
@@ -228,7 +226,6 @@ function findReplica(selector) {
         }
         var k = tempResult + 1;
         while (tempResult >= 0) {
-
             tempResult = app.currentFile[i].replica.indexOf(selector, k);
             if (tempResult >= 0) {
                 k = tempResult + 1 + k;
@@ -242,19 +239,20 @@ function findReplica(selector) {
     }
     return result;
 }
-function replaceReplica(selector, str){
+
+function replaceReplica(selector, str) {
     var indexes = findReplica(selector);
-    for(var i = 0; i < indexes.length; i++){
-        app.currentFile[indexes[i].id].replica = app.currentFile[indexes[i].id].replica.replace(selector, str); 
-        
+    for (var i = 0; i < indexes.length; i++) {
+        app.currentFile[indexes[i].id].replica = app.currentFile[indexes[i].id].replica.replace(selector, str);
     }
 }
 
-function test(tc1, tc2)
-    if(tc1 = tc2) {
+function testnum(tc1, tc2) {
+    if (tc1 == tc2) {
         return "=";
-        else if(tc1 < tc2){
-            return "<";
-            else return ">"
-        }
+    } else if (tc1 < tc2) {
+        return "<";
+    } else {
+        return ">";
     }
+}
