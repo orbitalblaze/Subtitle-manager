@@ -276,3 +276,20 @@ function tcCompare(tc1, tc2) {
         return H;
     }
 }
+
+
+function cutreplica(timecodedebut, timecodefin){
+    var selectedreplica = new Array();
+    for (var i = 0; i < app.currentFile.length; i++) {
+        var tcpstart = app.currentFile[i].timecode.start;
+        var tcpend = app.currentFile[i].timecode.end;
+        var tcpresult = tcCompare(timecodedebut, tcpstart);
+        if(tcpresult != ">"){
+            tcpresult = tcCompare(timecodefin, tcpend);
+            if(tcpresult != "<"){
+                selectedreplica.push(app.currentFile[i]);
+            }
+        }
+    }
+    return selectedreplica;
+}
