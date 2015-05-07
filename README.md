@@ -1,4 +1,4 @@
-![logo](http://127.0.0.1/WeexaStudio/data/images/stm.png)
+![logo](http://weexastudio.fr/data/images/stm.png)
 # Subtitle-manager
 Official site: http://weexastudio.fr  
 [Announcement](http://weexastudio.fr/?page=releasenotes)  
