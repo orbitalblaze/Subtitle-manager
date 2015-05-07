@@ -1,90 +1,80 @@
 ::-webkit-scrollbar {
     /* Scrollbars */
-    
-    width: 14px;
+
+width: 14px;
     height: 14px;
 }
-
 ::-webkit-scrollbar-track-piece {
     /* Fond */
-    
-    background: transparent none;
+
+background: transparent none;
     border: solid 4px transparent;
     border-right-width: 8px;
     margin: 4px;
     -webkit-box-shadow: inset 1px 1px 0 0 #E2E2E2, inset -1px -1px 0 0 #E2E2E2;
 }
-
 ::-webkit-scrollbar-track-piece: horizontal {
     /* Fond pour la barre du bas */
-    
-    border-right-width: 4px;
+
+border-right-width: 4px;
     border-bottom-width: 8px;
 }
-
 ::-webkit-scrollbar-thumb {
     /* Barre */
-    
-    border: solid 0 transparent;
+
+border: solid 0 transparent;
     border-right-width: 4px;
     -webkit-border-radius: 5px;
     -webkit-border-top-right-radius: 9px 5px;
     -webkit-border-bottom-right-radius: 9px 5px;
     -webkit-box-shadow: inset 0 0 0 6px rgb(102, 102, 102);
 }
-
 ::-webkit-scrollbar-thumb:hover {
     /* Barre */
-    
-    -webkit-box-shadow: inset 0 0 0 6px rgb(120, 120, 120);
-}
 
+-webkit-box-shadow: inset 0 0 0 6px rgb(120, 120, 120);
+}
 ::-webkit-scrollbar-thumb: horizontal {
     /* Barre du bas */
-    
-    border-right-width: 0;
+
+border-right-width: 0;
     border-bottom-width: 4px;
     -webkit-border-top-right-radius: 5px;
     -webkit-border-bottom-right-radius: 5px 9px;
     -webkit-border-bottom-left-radius: 5px 9px;
 }
-
 ::-webkit-scrollbar-button {
     /* Boutons */
-    display: none;
+
+display: none;
     height: 0px;
     background: none;
 }
-
 ::-webkit-scrollbar-button: increment {
     /* Bouton pour descendre */
-    
-    background-position: -19px 50%;
-}
 
-::-webkit-scrollbar-button: horizontal {
+background-position: -19px 50%;
+}
+: : -webkit-scrollbar-button: horizontal {
     display: none;
     height: 0px;
     background: none;
-}}
-
+}
+}
 ::-webkit-scrollbar-button: horizontal: increment {
     /* Bouton pour aller à droite */
-    
-    background-position: 50% -19px;
-}
 
+background-position: 50% -19px;
+}
 html {
     background: rgba(0, 0, 0, 0);
 }
-
 body {
     padding: 0;
     margin: 0;
     font-family: 'open_sansregular';
     -webkit-user-select: none;
 }
-
 #window-content {
     position: absolute;
     overflow: hidden;
@@ -96,7 +86,6 @@ body {
     z-index: 100;
     border-radius: 0 0 5px 5px;
 }
-
 #window-bar {
     position: absolute;
     background: #222;
@@ -105,7 +94,6 @@ body {
     border-radius: 5px 5px 0 0;
     z-index: 10000;
 }
-
 #window-bar .header {
     position: absolute;
     left: 0;
@@ -116,19 +104,16 @@ body {
     height: 30px;
     line-height: 30px;
 }
-
 #window-bar .header span {
     margin-left: 5px;
     font-size: 15px;
 }
-
 #window-bar .header img {
     height: 24px;
     float: left;
     margin-top: 3px;
     margin-left: 3px;
 }
-
 #window-bar .window-control {
     float: right;
     border: none;
@@ -141,49 +126,38 @@ body {
     transition: all 0.3s;
     border-radius: 2px;
 }
-
 #window-bar .window-control.close {
     background: #aa0000 url(../images/close.svg) center;
     margin-right: 5px;
     width: 45px;
 }
-
 #window-bar .window-control.maximize {
     background-image: url(../images/maximize.svg);
 }
-
 #window-bar .window-control.minimize {
     background: url(../images/minimize.svg);
 }
-
 #window-bar .window-control.dev {
     background: url(../images/developer.svg);
 }
-
 #window-bar .window-control.reload {
     background: url(../images/reload.svg);
 }
-
 #window-bar .window-control.dev:hover {
     background: #555 url(../images/developer.svg);
 }
-
 #window-bar .window-control.reload:hover {
     background: #555 url(../images/reload.svg);
 }
-
 #window-bar .window-control.close:hover {
     background-color: #d40000;
 }
-
 #window-bar .window-control.maximize:hover {
     background-color: #555;
 }
-
 #window-bar .window-control.minimize:hover {
     background-color: #555;
 }
-
 nav {
     position: absolute;
     top: 30px;
@@ -194,14 +168,12 @@ nav {
     height: 40px;
     z-index: 200000;
 }
-
 nav .window-menu {
     padding: 0;
     margin: 0;
     height: 40px;
     margin-left: 5px;
 }
-
 nav .window-menu li {
     color: white;
     float: left;
@@ -214,22 +186,19 @@ nav .window-menu li {
     cursor: default;
     border-radius: 3px;
 }
-
 nav .window-menu li:hover {
     background: #555;
 }
-
 @-webkit-keyframes fadeInBlock {
     from {
         display: none;
         opacity: 0;
-    }
-    to {
-        display: block;
-        opacity: 1;
-    }
+   }
+   to {
+       display: block;
+       opacity: 1;
+  }
 }
-
 nav .window-menu li .submenu {
     position: absolute;
     float: left;
@@ -240,16 +209,13 @@ nav .window-menu li .submenu {
     overflow: hidden;
     display: none;
 }
-
 nav .window-menu li:hover .submenu {
     display: block;
 }
-
 nav .window-menu li .submenu ul {
     padding: 0;
     margin: 0;
 }
-
 nav .window-menu li .submenu ul li {
     color: white;
     padding-right: 5px;
@@ -263,11 +229,9 @@ nav .window-menu li .submenu ul li {
     float: none;
     background: #c94900;
 }
-
 nav .window-menu li .submenu li:hover {
     background: #f25800;
 }
-
 #freeze {
     position: fixed;
     top: 0;
@@ -278,7 +242,6 @@ nav .window-menu li .submenu li:hover {
     overflow: hidden;
     display: none;
 }
-
 #pushwindow {
     position: fixed;
     top: 30px;
@@ -290,7 +253,6 @@ nav .window-menu li .submenu li:hover {
     border-radius: 5px;
     overflow: hidden;
 }
-
 #pushwindow>div {
     position: absolute;
     top: 30px;
@@ -303,11 +265,9 @@ nav .window-menu li .submenu li:hover {
     border-radius: 3px;
     margin: auto;
 }
-
 #pushwindow>div.save {
     width: 400px;
 }
-
 #pushwindow>div h1 {
     padding: 0;
     margin: 0;
@@ -317,7 +277,6 @@ nav .window-menu li .submenu li:hover {
     margin-top: 5px;
     font-family: 'open_sansbold';
 }
-
 #pushwindow>div .message {
     display: block;
     width: 90%;
@@ -330,14 +289,12 @@ nav .window-menu li .submenu li:hover {
     margin-top: 5px;
     font-weight: 600;
 }
-
 #pushwindow>div .buttonZone {
     position: absolute;
     right: 5px;
     bottom: 0px;
     left: 5px;
 }
-
 #pushwindow>div .button {
     position: relative;
     float: right;
@@ -354,22 +311,18 @@ nav .window-menu li .submenu li:hover {
     margin-left: 5.5px;
     transition: all 0.1s;
 }
-
 #pushwindow>div .button.second {
     font-family: 'open_sansbold_italic';
     color: #555;
 }
-
 #pushwindow>div .button:hover {
     color: white;
     background: #008d7e;
 }
-
 #pushwindow>div .button.second:hover {
     color: white;
     background: #555;
 }
-
 #body {
     position: fixed;
     width: 100%;
@@ -378,7 +331,6 @@ nav .window-menu li .submenu li:hover {
     bottom: 0;
     top: 125px;
 }
-
 #body .centered-message {
     display: table;
     position: static;
@@ -387,16 +339,14 @@ nav .window-menu li .submenu li:hover {
     color: white;
     font-size: 25px;
 }
-
 @-webkit-keyframes bounceInf {
     from {
         -webkit-transform: scale(1, 1);
-    }
-    to {
-        -webkit-transform: scale(0.9, 0.9);
-    }
+   }
+   to {
+       -webkit-transform: scale(0.9, 0.9);
+  }
 }
-
 #body .filedragover {
     position: fixed;
     top: 75px;
@@ -419,15 +369,12 @@ nav .window-menu li .submenu li:hover {
     -webkit-animation-timing-function: ease-in;
     display: none;
 }
-
 #body .filedragover h1 {
     margin-top: 300px;
 }
-
 #workingGUI {
     display: none;
 }
-
 #body .bottomMenu {
     position: absolute;
     left: 0;
@@ -437,7 +384,6 @@ nav .window-menu li .submenu li:hover {
     background: #212121;
     border-top: 1px solid #666;
 }
-
 #body .replicaList {
     width: 100%;
     position: absolute;
@@ -447,7 +393,6 @@ nav .window-menu li .submenu li:hover {
     top: 0;
     overflow: auto;
 }
-
 #body .replicaList .item {
     background: #ad4d00;
     width: 98%;
@@ -459,11 +404,9 @@ nav .window-menu li .submenu li:hover {
     overflow: hidden;
     border: 3px solid transparent;
 }
-
-#body .replicaList .item:last-child {
+#body .replicaList .item: last-child {
     margin-bottom: 5px;
 }
-
 #body .replicaList .item .rank {
     cursor: default;
     float: left;
@@ -476,15 +419,14 @@ nav .window-menu li .submenu li:hover {
     font-family: 'open_sansbold';
     text-align: center;
 }
-#body .replicaList .item .rank .checkbox{
+#body .replicaList .item .rank .checkbox {
     display: none;
 }
-#body .replicaList .item .rank .checkbox img{
+#body .replicaList .item .rank .checkbox img {
     width: 50px;
     height: 50px;
     margin-top: 25px;
 }
-
 #body .replicaList .item .timecode {
     float: right;
     height: 100px;
@@ -495,7 +437,6 @@ nav .window-menu li .submenu li:hover {
     padding: 0;
     font-family: 'open_sanssemibold';
 }
-
 #body .replicaList .item .replica {
     float: left;
     height: 100px;
@@ -504,26 +445,23 @@ nav .window-menu li .submenu li:hover {
     margin: 0;
     padding: 0;
 }
-
 #body .replicaList .item .replica span {
     vertical-align: middle;
     display: inline-block;
     line-height: 0;
     /* on rétablit le line-height */
-    
-    text-align: left;
+
+text-align: left;
     font-family: 'open_sansbold_italic';
 }
-
 @-webkit-keyframes load {
     from {
         stroke-dashoffset: 0;
-    }
-    to {
-        stroke-dashoffset: 285;
-    }
+   }
+   to {
+       stroke-dashoffset: 285;
+  }
 }
-
 .loader {
     display: none;
     position: fixed;
@@ -537,11 +475,10 @@ nav .window-menu li .submenu li:hover {
     z-index: 9999999999999999999999999999999999999;
     overflow: initial;
 }
-
 .loader img {
     width: 300px;
 }
-input[type=range]{
+input[type=range] {
     -webkit-appearance: none;
     background: none;
 }
@@ -553,7 +490,6 @@ input[type=range]::-webkit-slider-runnable-track {
     border: none;
     border-radius: 3px;
 }
-
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     border: none;
@@ -563,18 +499,17 @@ input[type=range]::-webkit-slider-thumb {
     margin-top: -7px;
     border-radius: 3px;
 }
-
 input[type=range]:focus {
     outline: none;
 }
-#timecodeChanger, #timecodeChangerms,#timecodeChangerm{
+#timecodeChanger, #timecodeChangerms, #timecodeChangerm {
     position: relative;
     left: 0;
     right: 0;
     width: 90%;
     margin-left: 5%;
 }
-.bubbleValue{
+.bubbleValue {
     position: relative;
     z-index: 999999999999999999999999999999999999999;
     margin-top: -45px;
@@ -593,7 +528,7 @@ input[type=range]:focus {
     text-align: center;
     display: none;
 }
-.bottomMenu label{
+.bottomMenu label {
     margin: 0;
     padding: 0;
     line-height: 15px;
@@ -603,7 +538,7 @@ input[type=range]:focus {
     margin-left: 5%;
     height: 15px;
 }
-#toolbar{
+#toolbar {
     position: absolute;
     top: 0px;
     width: 100%;
@@ -611,47 +546,47 @@ input[type=range]:focus {
     border-bottom: 5px solid #999;
     background: #bbb;
 }
-#toolbar ul{
-    float: right;
-    height: 45px;
-    line-height: 45px;
-    padding: 0;
-    margin: 0;
-    margin-right: 15px;
-}
-#toolbar ul li{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    height: 45px;
-    line-height: 45px;
-    float: right;
-}
-#toolbar button{
+#toolbar button {
     position: relative;
-    background: none;
+    background: none no-repeat center;
     border: none;
     outline: none;
     font-family: 'open_sansbold_italic';
     font-size: 15px;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
     color: #333;
     border-radius: 5px;
-    transition: all 0.2s ease;
-    margin-left: 5px;
-    height: 31px !important;
+    line-height: 0;
+    height: 30px;
+    min-width: 30px;
+    margin-top: 7px;
+    margin-left: 7px;
+    transition: all 0.1s;
 }
-#toolbar button img{
-    display: inline-block;
-    margin-bottom: -5px;
-}
-#toolbar button:hover{
-    background: #999;
+#toolbar button:hover {
+    background: #999 no-repeat center;
     color: #fff;
 }
+#toolbar button.menu, #toolbar button.edit{
+    float: right;
+    margin-right: 5px;
+}
+#toolbar button.menu{
+    background-image: url("../images/littleMenu.png");
+}
+#toolbar button.menu:hover{
+    background-image: url("../images/littleMenuWhite.png");
+}
+#toolbar button.edit{
+    background-image: url("../images/quill.png");
+    background-size: 20px;
+}
+#toolbar button.edit:hover{
+    background-image: url("../images/quillWhite.png");
+}
 #toolbar button.unselectall{
-    margin-top: 7px;
-    margin-left: 15px;
+    float: left;
+    background-image: url("../images/unselect.png");
+}
+#toolbar button.unselectall:hover{
+    background-image: url("../images/unselectWhite.png");
 }
