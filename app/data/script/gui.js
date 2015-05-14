@@ -193,9 +193,9 @@ function getExtension(filename) {
         $("html").css('background', 'rgba(0,0,0,0)', function() {
             win.setTransparent(!win.isTransparent);
         });
-        if(localStorage.getItem("isMaximized") == undefined){
-           localStorage.setItem("isMaximized", false);
-           win.unmaximize()
+        if (localStorage.getItem("isMaximized") == undefined) {
+            localStorage.setItem("isMaximized", false);
+            win.unmaximize()
         }
     });
     $(".maximize").click(function() {
@@ -274,6 +274,10 @@ function getExtension(filename) {
             $("#saveFileInput").click();
         }
     });
+    $("#newWindow").click(function(event) {
+        event.preventDefault();
+        window.open("index.html", require("./package.json").window);
+    });
     $("#saveMenu").click(function(event) {
         event.preventDefault();
         if (app.currentFilePath != false) {
@@ -310,6 +314,15 @@ function getExtension(filename) {
             app.gui.alert("Mauvaise extension", "Le fichier ne peut être ouvert par Subtitle Manager, il n'est pas au format .srt");
         }
     });
+    $(".unselectall").click(function(event) {
+        event.preventDefault();
+        for (var i = app.currentFile.length - 1; i >= 0; i--) {
+            if(app.currentFile[i].selected == true){
+                var idElem= i + 1;
+                $("#" + idElem + " .rank").click();
+            }
+        };
+    });
     $(document).on("selectSys", function(event) {
         $(".rank").click(function(event) {
             event.preventDefault();
@@ -331,6 +344,22 @@ function getExtension(filename) {
                 });
                 app.currentFile[parseInt(item.attr('id')) - 1].selected = false;
                 app.isSelectedReplica--;
+            }
+            if (app.isSelectedReplica > 0) {
+                $("#toolbar").animate({
+                    top: "0px"
+                }, "fast");
+                $("#body ").animate({
+                    top: "125px"
+                }, "fast");
+
+            }else{
+                $("#toolbar").animate({
+                    top: "-50px"
+                }, "fast");
+                $("#body ").animate({
+                    top: "75px"
+                }, "fast");
             }
         });
     });
