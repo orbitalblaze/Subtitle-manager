@@ -375,15 +375,7 @@ nav .window-menu li .submenu li:hover {
 #workingGUI {
     display: none;
 }
-#body .bottomMenu {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 150px;
-    background: #212121;
-    border-top: 1px solid #666;
-}
+
 #body .replicaList {
     width: 100%;
     position: absolute;
@@ -478,6 +470,18 @@ text-align: left;
 .loader img {
     width: 300px;
 }
+input[type=text] {
+    -webkit-appearance: none;
+    background: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 15px;
+    height: 20px;
+    width: 80%;
+    margin: auto;
+    outline: none;
+}
 input[type=range] {
     -webkit-appearance: none;
     background: none;
@@ -527,6 +531,48 @@ input[type=range]:focus {
     line-height: 20px;
     text-align: center;
     display: none;
+}
+#body .bottomMenu {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 150px;
+    background: #212121;
+    border-top: 1px solid #666;
+    width: 300%;
+}
+#body .bottomMenu #timecodeForm,#body .bottomMenu #replaceForm, #body .bottomMenu #cutForm {
+    float: left;
+    width: 33.3%;
+    height: 100%;
+    transition: all 0.3s;
+}
+#body .bottomMenu #timecodeForm{
+    margin-left: 0;
+}
+#body .bottomMenu #replaceForm{
+    text-align: center;
+}
+.bottomMenu button{
+     position: relative;
+    background: none no-repeat center;
+    border: none;
+    outline: none;
+    font-family: 'open_sansbold_italic';
+    font-size: 15px;
+    color: #aaa;
+    border-radius: 5px;
+    line-height: 0;
+    height: 30px;
+    min-width: 30px;
+    margin-top: 7px;
+    margin-left: 7px;
+    transition: all 0.1s;
+    width: 200px;
+}
+.bottomMenu button:hover {
+    background: #fff no-repeat center;
+    color: #333;
 }
 .bottomMenu label {
     margin: 0;

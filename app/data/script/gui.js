@@ -317,11 +317,31 @@ function getExtension(filename) {
     $(".unselectall").click(function(event) {
         event.preventDefault();
         for (var i = app.currentFile.length - 1; i >= 0; i--) {
-            if(app.currentFile[i].selected == true){
-                var idElem= i + 1;
+            if (app.currentFile[i].selected == true) {
+                var idElem = i + 1;
                 $("#" + idElem + " .rank").click();
             }
         };
+    });
+    $("#searchInputButton").click(function(event) {
+        event.preventDefault();
+        if ($("#searchInputText").val() != "") {
+            work.do .
+            search($("#searchInputText").val());
+        } else {
+            work.do .
+            search();
+        }
+    });
+    $("#replaceInputButton").click(function(event) {
+        event.preventDefault();
+        if ($("#replaceInputText").val() != "" && $("#searchInputText").val() != "") {
+            work.do .
+            replace($("#searchInputText").val(), $("#replaceInputText").val());
+        } else {
+            work.do .
+            replace();
+        }
     });
     $(document).on("selectSys", function(event) {
         $(".rank").click(function(event) {
@@ -352,8 +372,7 @@ function getExtension(filename) {
                 $("#body ").animate({
                     top: "125px"
                 }, "fast");
-
-            }else{
+            } else {
                 $("#toolbar").animate({
                     top: "-50px"
                 }, "fast");
@@ -362,5 +381,25 @@ function getExtension(filename) {
                 }, "fast");
             }
         });
+    });
+    $(".toolButton").click(function(event) {
+        event.preventDefault();
+        var target = $(this).attr('target');
+        var margin = "0";
+        switch (target) {
+            case "timecodeForm":
+
+                margin = 0;
+                break;
+            case "replaceForm":
+                margin = -100;
+                break;
+            case "cutForm":
+                margin = -200;
+                break;
+        }
+        $("#timecodeForm").css('marginLeft', margin + "%");
+        $("#replaceForm").css('marginLeft', margin+100 + "%");
+        $("#cutForm").css('marginLeft', margin+200 + "%");
     });
 })(jQuery);

@@ -69,16 +69,15 @@
                             <li>Annuler</li>
                             <li>retablir</li>
                             <li>Recharger le fichier original</li>
-                            <li>Rechercher / Remplacer</li>
                         </ul>
                     </div>
                 </li>
                 <li>Outils
                     <div class="submenu">
                         <ul>
-                            <li>Recalage des sous-titres</li>
-                            <li>Découpage des sous-titres</li>
-                            <li>Édition de sous-titre</li>
+                            <li class="toolButton" target="timecodeForm">Recalage des sous-titres</li>
+                            <li class="toolButton" target="cutForm">Découpage des sous-titres</li>
+                            <li class="toolButton" target="replaceForm">Rechercher / Remplacer</li>
                         </ul>
                     </div>
                 </li>
@@ -98,7 +97,6 @@
                 <button class="unselectall"></button>
                 <button  class="menu"></button>
                 <button  class="edit"></button>
-
             </div>
             <div id="body">
                 <div class="filedragover">
@@ -117,13 +115,25 @@
                         </div>
                     </div>
                     <div class="bottomMenu">
-                        <div class="bubbleValue"></div>
-                        <label>± 60 sec</label><br>
-                        <input type="range" min="-60" max="60" value="0" id="timecodeChangerm" step="0.1"><br>
-                        <label>± 10 sec</label><br>
-                        <input type="range" min="-10" max="10" value="0" id="timecodeChanger" step="0.01"><br>
-                        <label>± 1 sec</label><br>
-                        <input type="range" min="-1" max="1" value="0" id="timecodeChangerms" step="0.001">
+                        <div id="timecodeForm">
+                            <div class="bubbleValue"></div>
+                            <label>± 60 sec</label><br>
+                            <input type="range" min="-60" max="60" value="0" id="timecodeChangerm" step="0.1"><br>
+                            <label>± 10 sec</label><br>
+                            <input type="range" min="-10" max="10" value="0" id="timecodeChanger" step="0.01"><br>
+                            <label>± 1 sec</label><br>
+                            <input type="range" min="-1" max="1" value="0" id="timecodeChangerms" step="0.001">
+                        </div>
+                        <div id="replaceForm">
+                        <br>
+                            <input type="text" id="searchInputText" placeholder="Rechercher...">
+                            <button id="searchInputButton">Rechercher</button><br><br>
+                            <input type="text" id="replaceInputText" placeholder="Remplacer par...">
+                            <button id="replaceInputButton">Remplacer tout</button>
+                        </div>
+                        <div id="cutForm">
+                            <h1>Découpage des sous-titres</h1>
+                        </div>
                     </div>
                 </div>
             </div>
