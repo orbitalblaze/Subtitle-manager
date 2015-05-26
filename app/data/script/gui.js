@@ -319,9 +319,14 @@ function getExtension(filename) {
         for (var i = app.currentFile.length - 1; i >= 0; i--) {
             if (app.currentFile[i].selected == true) {
                 var idElem = i + 1;
-                $("#" + idElem + " .rank").click();
+                $("#" + idElem + " .rank").children("span.checkbox").attr("uiselected", "false");
+                $("#" + idElem + " .rank").children("span.checkbox").hide();
+                $("#" + idElem + " .rank").children("span.number").fadeIn("fast");
+                $("#" + idElem).css('border', '3px solid transparent');
+                app.currentFile[i].selected = false;
+                app.isSelectedReplica--;
             }
-        };
+        }
     });
     $("#searchInputButton").click(function(event) {
         event.preventDefault();
@@ -343,12 +348,26 @@ function getExtension(filename) {
             replace();
         }
     });
+    var ctrlKey = false;
+    $(document).keydown(function(event) {
+        if (event.keyCode) {
+            ctrlKey = true;
+        }
+    });
+    $(document).keyup(function(event) {
+        if (event.keyCode) {
+            ctrlKey = false;
+        }
+    });
     $(document).on("selectSys", function(event) {
+        event.preventDefault();
         $(".rank").click(function(event) {
-            event.preventDefault();
             var elem = $(this);
             var item = $(this).parent(".item");
             if (app.currentFile[parseInt(item.attr('id')) - 1].selected == false) {
+                if (ctrlKey != true) {
+                    $(".unselectall").click();
+                }
                 elem.children("span.checkbox").attr("uiselected", "true");
                 elem.children("span.number").fadeOut("fast", function() {
                     elem.children("span.checkbox").fadeIn("fast");
@@ -388,7 +407,6 @@ function getExtension(filename) {
         var margin = "0";
         switch (target) {
             case "timecodeForm":
-
                 margin = 0;
                 break;
             case "replaceForm":
@@ -399,7 +417,7 @@ function getExtension(filename) {
                 break;
         }
         $("#timecodeForm").css('marginLeft', margin + "%");
-        $("#replaceForm").css('marginLeft', margin+100 + "%");
-        $("#cutForm").css('marginLeft', margin+200 + "%");
+        $("#replaceForm").css('marginLeft', margin + 100 + "%");
+        $("#cutForm").css('marginLeft', margin + 200 + "%");
     });
 })(jQuery);
