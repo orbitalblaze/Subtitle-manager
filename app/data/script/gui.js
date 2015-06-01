@@ -325,6 +325,21 @@ function getExtension(filename) {
                 $("#" + idElem).css('border', '3px solid transparent');
                 app.currentFile[i].selected = false;
                 app.isSelectedReplica--;
+                if (app.isSelectedReplica > 0) {
+                    $("#toolbar").animate({
+                        top: "0px"
+                    }, "fast");
+                    $("#body ").animate({
+                        top: "125px"
+                    }, "fast");
+                } else {
+                    $("#toolbar").animate({
+                        top: "-50px"
+                    }, "fast");
+                    $("#body ").animate({
+                        top: "75px"
+                    }, "fast");
+                }
             }
         }
     });
@@ -403,6 +418,8 @@ function getExtension(filename) {
     });
     $(".toolButton").click(function(event) {
         event.preventDefault();
+        work.do .
+        search();
         var target = $(this).attr('target');
         var margin = "0";
         switch (target) {
