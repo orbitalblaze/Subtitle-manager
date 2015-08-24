@@ -57,9 +57,9 @@
      inkscape:snap-page="true"
      inkscape:window-width="1366"
      inkscape:window-height="706"
-     inkscape:window-x="1272"
-     inkscape:window-y="403"
-     inkscape:window-maximized="1"
+     inkscape:window-x="-32000"
+     inkscape:window-y="-32000"
+     inkscape:window-maximized="0"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:snap-to-guides="true"
@@ -528,7 +528,10 @@
          y="327.58807" /></text>
     <g
        id="g4779"
-       transform="translate(-395.41058,587.6313)">
+       transform="translate(-395.41058,587.6313)"
+       inkscape:export-filename="C:\Users\Rémi\Documents\GitHub\Subtitle Manager\Subtitle-manager\app\data\images\logo.png"
+       inkscape:export-xdpi="89.98629"
+       inkscape:export-ydpi="89.98629">
       <path
          transform="matrix(0,-1,1,0,-130.66747,464.73094)"
          d="M 500,250 C 500,388.07119 388.07119,500 250,500 111.92881,500 0,388.07119 0,250 0,111.92881 111.92881,0 250,0 388.07119,0 500,111.92881 500,250 z"
