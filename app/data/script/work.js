@@ -6,6 +6,9 @@
             $(".centered-message").fadeOut("fast", function() {
                 $("#body .replicaList").html("");
                 for (var i = 0; i < app.currentFile.length; i++) {
+                    if(typeof app.currentFile[i].replica === "undefined"){
+                        app.currentFile[i].replica = "";
+                    }
                     $("#body .replicaList").append('<div class="item" id="' + app.currentFile[i].rank + '"><div class="rank"><span class="number">' + app.currentFile[i].rank + '</span><span class="checkbox"><img src="data/images/checkbox.svg"></span></div><p class="replica"><span>"' + app.currentFile[i].replica.replace("\r\n", " ↵ ") + '"</span></p><div class="timecode">' + prettifyTimecode(app.currentFile[i].timecode) + '</div></div>')
                 }
                 $(document).trigger("selectSys");
