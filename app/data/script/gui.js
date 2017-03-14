@@ -2,7 +2,6 @@ var gui = require('nw.gui'),
     fs = require('fs'); //or global.window.nwDispatcher.requireNwGui() (see https://github.com/rogerwang/node-webkit/issues/707)
 // Get the current window
 var win = gui.Window.get();
-gui.App.setCrashDumpDir("./");
 if (localStorage.getItem("isMaximized") == "true") {
     win.maximize();
     jQuery(".maximize").css('background-image', 'url(data/images/maximize.svg)');
